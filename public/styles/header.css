@@ -1,0 +1,30 @@
+/* header.css */
+/* set the header height to 400px */
+header {
+  height: 500px;
+  background-color: #cc8800;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* style the profile picture */
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+/* style the username */
+.username {
+  font-size: 1.5em;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  align-items: center;
+}
+

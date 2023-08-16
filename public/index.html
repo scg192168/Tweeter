@@ -5,10 +5,40 @@
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+
+    <!-- Path to layout and nav files -->
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+
+    <!-- Link to font-awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- External CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
+
+    <!-- App CSS-->
+    <link rel="stylesheet" herf="/styles/layout.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,10 +50,31 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="navclass">tweeter</span>
+      <div class="right-align">
+        <p><b>Write</b> a new tweet</p>
+        <i class="fa-solid fa-angles-down" style="color: #cc8800"></i>
+      </div>
     </nav>
-
+    <header>
+      <div class='profile-picture'>
+        <img src="/images/profile-hex.png" />
+        <div class="center">
+      </div>
+      <br />
+      <div>
+        <p class="username" style="color: #fff"><b>Shyamal</b>Ghosh</p>
+      </div>
+    </header>
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+    <form>
+      <textarea name="text" rows="1" placeholder="What are you humming about"></textarea>
+      <div class="button-counter">
+        <button type="submit">tweet</button>
+        <span class="counter">140</span>
+      </div>
+    </form>
+    </main>
   </body>
 </html>

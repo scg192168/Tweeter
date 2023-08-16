@@ -1,0 +1,61 @@
+/* add blinking animation to the nav bar */
+@keyframes bounce {
+  0%, 100% {
+    transform: translate Y(0)
+  }
+  50% {transform:translateY(-125px) 
+  }
+}
+
+
+/* set the navigation bar heigh, background and font color */
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
+  position: fixed;
+  justify-content: space-between;
+}
+
+/* now apply the Bungee font to the <span> element within the <nav> */
+nav span {
+  font-family: 'Bungee', sans-serif;
+}
+
+/* add flexboard to navigation bar */
+
+.right-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-align p {
+  margin-right: 10px; /* adds space between text & icon */
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.right-align i {
+  margin-left: 5px; /* Adjust the spacing on the left side of the icon */
+}
+
+.head {
+background-color: #cc8800;
+background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */ ;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+height: 400px;
+}
+
+/* nav {
+  animation: bounce 1s infinite;
+} */
