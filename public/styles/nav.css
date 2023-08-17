@@ -1,11 +1,11 @@
 /* add blinking animation to the nav bar */
-@keyframes bounce {
+/* @keyframes bounce {
   0%, 100% {
     transform: translate Y(0)
   }
   50% {transform:translateY(-125px) 
   }
-}
+} */
 
 
 /* set the navigation bar heigh, background and font color */
