@@ -1,6 +1,6 @@
 /* header.css */
 /* set the header height to 400px */
-header {
+#header {
   height: 500px;
   background-color: #cc8800;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
