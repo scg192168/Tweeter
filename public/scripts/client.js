@@ -5,11 +5,11 @@
  */
 
 // Fake data taken from initial-tweets.json
-$( document ).ready(function() {
-console.log("ready");
-// Function to create a tweet element
-const createTweetElement = function(tweet) {
-   return $(`
+$(document).ready(function () {
+  // Function to create a tweet element
+  const createTweetElement = function (tweet) {
+    console.log("tweet", tweet);
+    return $(`
     <article class="tweet">
       <header>
         <div class="tweet-header-left">
@@ -29,54 +29,61 @@ const createTweetElement = function(tweet) {
       </footer>
     </article>
   `);
-};
+  };
 
-// Function to render tweets
-const renderTweets = function(tweets) {
-  for (const tweet of tweets) {
-    const $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
-  }
-};
-// Function to lead tweets from the server
-const loadTweets = function() {
-  $.ajax({
-    url: '/tweets',
-    method: 'GET',
-    dataType: 'json',
-    success: function(tweets) {
-      renderTweets(tweets);
-      console.log("loadTweets");
-    },
-    error: function(error) {
-      console.error('Error loading tweets:', error);
+  // Function to render tweets
+  const renderTweets = function (tweets) {
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      //prepending to show latest tweet first
+      $("#tweets-container").prepend($tweet);
     }
-  });
-}
-// Submit event handler for the form
+  };
 
-  $('form').submit(function(event) {
+  // Function to lead tweets from the server
+  const loadTweets = function () {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+      success: function (tweets) {
+        renderTweets(tweets);
+      },
+      error: function (error) {
+        console.error("Error loading tweets:", error);
+      },
+    });
+  };
+
+  // Submit event handler for the form
+  $("form").submit(function (event) {
     event.preventDefault();
-console.log("insideFormHandler");
+
     const $form = $(this);
-    const $textarea = $form.find('textarea');
+    const $textarea = $form.find("textarea");
     const tweetText = $textarea.val().trim();
 
+    // validate the tweet text
     if (!tweetText) {
       alert("Tweet content cannot be empty!");
     } else if (tweetText.length > 140) {
       alert("Tweet is too long! Maximum 140 characters.");
     } else {
+      $.ajax({
+        url: "/tweets",
+        method: "POST",
+        data: $(this).serialize(),
+        success: function () {
+          loadTweets();
+          $textarea.val("");
+        },
+        error: function (error) {
+          console.error("Error loading tweets:", error);
+        },
+      });
     }
   });
 
-// Load tweets from the server and render them
-loadTweets();
-console.log("ready!");
+  // Load tweets from the server and render them
+  loadTweets();
 });
-
-// Call the renderTweets function with the data array
-// renderTweets(data);
-
-// console.log( "ready!" );
-// });
