@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -17,14 +19,14 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 24px;
   height: 100%;
   min-height: 150vh;
 }
 
 .logo {
-  font-family: 'Bungee';
+  font-family: "Bungee";
   font-weight: 400;
 }
 
@@ -32,17 +34,13 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- main {
+.container {
   width: 90%;
   margin: 0 auto;
   padding: 20px 0;
- }
-
-main form {
-  width: 100%;
 }
 
-main form textarea {
+.container textarea {
   width: 100%;
   margin-bottom: 1em;
   background-color: transparent;
@@ -52,15 +50,38 @@ main form textarea {
   border-bottom: 3px solid black;
 }
 
-main form .button-counter {
+.container .button-counter {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-family: 'Bungee';
+  font-family: "Bungee";
+  color: red;
 }
 
-main form .button-counter button {
-  background-color: #4056A1;
+.container .button-counter button {
+  background-color: #4056a1;
   color: white;
 }
 
+@media only screen and (min-width: 1024px) {
+  .body-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 10em;
+    background-color: transparent;
+  }
+
+  #header {
+    width: 80%;
+  }
+
+  .container {
+    margin: 90px;
+    margin-top: 0px;
+    margin-left: 150px;
+    background-color: transparent;
+  }
+}
