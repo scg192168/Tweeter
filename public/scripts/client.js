@@ -68,12 +68,17 @@ $(document).ready(function () {
     const $form = $(this);
     const $textarea = $form.find("textarea");
     const tweetText = $textarea.val().trim();
+    const $errorContainer = $(".error-container");
+    
+
+    //$errorContainer.slideUP();
 
     // validate the tweet text
     if (!tweetText) {
-      alert("Tweet content cannot be empty!");
+    alert("The tweet cannot be empty!.");
     } else if (tweetText.length > 140) {
-      alert("Tweet is too long! Maximum 140 characters.");
+      //console.log("tweet is too long");
+    $( ".error-container" ).append( " <div class='error-message'><span>&#9888;</span><p >  Tweet is too long. Pls rspt our arbitary limit of 140 chars #kthxbye</p><span>&#9888;</span></div>" );
     } else {
       $.ajax({
         url: "/tweets",
