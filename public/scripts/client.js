@@ -6,6 +6,12 @@
 
 // Fake data taken from initial-tweets.json
 $(document).ready(function () {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   // Function to create a tweet element
   const createTweetElement = function (tweet) {
     console.log("tweet", tweet);
@@ -18,7 +24,7 @@ $(document).ready(function () {
         </div>
         <p class="tweet-header-right">${tweet.user.handle}</p>
       </header>
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
       <footer>
       <span>${timeago.format(tweet.created_at)}</span>
         <div class="icon-container">
