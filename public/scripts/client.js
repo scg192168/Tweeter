@@ -73,8 +73,10 @@ $(document).ready(function () {
     //$errorContainer.slideUP();
 
     // validate the tweet text
-    if (!tweetText) {
-      alert("The tweet cannot be empty!.");
+    if (tweetText.length === 0) {
+      $(".error-container").append(
+        " <div class='error-message'><span>&#9888;</span><p >  The tweet cannot be empty!</p><span>&#9888;</span></div>"
+      );
     } else if (tweetText.length > 140) {
       //console.log("tweet is too long");
       $(".error-container").append(
@@ -86,6 +88,7 @@ $(document).ready(function () {
         method: "POST",
         data: $(this).serialize(),
         success: function () {
+          $("#tweets-container").empty();
           loadTweets();
           $textarea.val("");
         },
@@ -99,3 +102,4 @@ $(document).ready(function () {
   // Load tweets from the server and render them
   loadTweets();
 });
+
